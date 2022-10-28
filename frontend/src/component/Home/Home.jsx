@@ -8,7 +8,7 @@ import bg4 from "../../Assets/back4.jpg";
 
 import ProductCard from "../Products/ProductCard";
 import  {useDispatch, useSelector} from "react-redux"
-//import { clearErrors, getProduct } from "../../actions/ProductActions";
+import { clearErrors, getProduct } from "../../actions/ProductActions";
 import Header from "./Header";
 //import MetaData from "../../more/Metadata";
 // import Footer from "../../Footer";
@@ -26,9 +26,9 @@ const Home = () => {
    useEffect(() => {
     if(error){ 
       toast.error(error);
-      //dispatch(clearErrors());
+      dispatch(clearErrors());
  }
-  //dispatch(getProduct());
+  dispatch(getProduct());
    }, [dispatch,error])
    
   return (
