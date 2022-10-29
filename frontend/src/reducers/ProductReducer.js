@@ -1,3 +1,6 @@
+// import axios from "axios";
+// import { Link } from "react-router-dom";
+
 import {
   ALL_PRODUCT_FAIL,
   ALL_PRODUCT_REQUEST,
@@ -5,17 +8,23 @@ import {
   CLEAR_ERRORS
 } from "../constans/ProductConstans";
 
-export const productsReducer = (state = { products: [] }, action) => {
+export const productsReducer = (state = { product: [] }, action) => {
+  // fetch(`/api/v2/product`)
+  // .then(response => response.json())
+  // .then(data => console.log(data));
+
   switch (action.type) {
     case ALL_PRODUCT_REQUEST:
       return {
         loading: true,
-        products: [],
+        product: [],
       };
     case ALL_PRODUCT_SUCCESS:
       return {
+  
         loading: false,
-        products: action.payload.products,
+        product: action.payload.product,
+
       };
 
     case ALL_PRODUCT_FAIL:
@@ -32,6 +41,8 @@ export const productsReducer = (state = { products: [] }, action) => {
       return state;
   }
 };
+
+     
 
 // import {ALL_PRODUCT_FAIL,
 //         ALL_PRODUCT_REQUEST,

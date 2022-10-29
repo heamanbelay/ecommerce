@@ -52,5 +52,5 @@
   "devDependencies": {
     "babel-plugin-react-html-attrs": "^3.0.5"
   },
-  "proxy": "http://192.168.56.1:4000"
+  "proxy": "http://172.18.48.1:4000"
 }

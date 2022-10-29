@@ -20,7 +20,7 @@ import { ToastContainer, toast } from 'react-toastify';
 const Home = () => {
   const dispatch = useDispatch();
   const { products,error,loading } = useSelector(
-     (state) => state.products
+     (state) => state.product
   );
 
    useEffect(() => {

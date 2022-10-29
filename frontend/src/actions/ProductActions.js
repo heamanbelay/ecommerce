@@ -13,7 +13,10 @@ export const getProduct =
       dispatch({
         type: ALL_PRODUCT_REQUEST,
       });
-
+      fetch(`/api/v2/product`)
+  .then(response => response.json())
+  .then(data => console.log(data));
+ 
       let link = `/api/v2/product`;
 
       // if (category) {
