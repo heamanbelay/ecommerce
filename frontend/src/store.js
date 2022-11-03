@@ -2,12 +2,15 @@ import thunk from "redux-thunk";
 import ReactDOM from 'react-dom'
 // import { createStore, combineReducers, compose, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { productsReducer } from "./reducers/ProductReducer";
+import { productsReducer, productDetailsReducer } from "./reducers/ProductReducer";
 //const { createStore, applyMiddleware ,combineReducers} = require('redux');
 import { configureStore, combineReducers , applyMiddleware } from '@reduxjs/toolkit'
+import { userReducer } from "./reducers/userReducer";
 
 const reducer = combineReducers({
   products: productsReducer,
+  productDetails: productDetailsReducer,
+  user:userReducer
 })
 
 let initialState = {

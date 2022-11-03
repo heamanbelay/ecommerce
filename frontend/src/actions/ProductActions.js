@@ -4,6 +4,9 @@ import {
   ALL_PRODUCT_REQUEST,
   ALL_PRODUCT_SUCCESS,
   CLEAR_ERRORS,
+  PRODUCT_DETAILS_FAIL,
+  PRODUCT_DETAILS_REQUEST,
+  PRODUCT_DETAILS_SUCCESS,
 } from "../constans/ProductConstans";
 
 export const getProduct =
@@ -13,10 +16,7 @@ export const getProduct =
       dispatch({
         type: ALL_PRODUCT_REQUEST,
       });
-      fetch(`/api/v2/product`)
-  .then(response => response.json())
-  .then(data => console.log(data));
- 
+
       let link = `/api/v2/product`;
 
       // if (category) {
@@ -32,6 +32,25 @@ export const getProduct =
       dispatch({
         type: ALL_PRODUCT_FAIL,
         payload: error.response.data.message,
+      });
+    }
+  };
+
+  // Get All Products Details
+export const getProductDetails= (id) => async (dispatch)=>{
+  try {
+      dispatch({ type: PRODUCT_DETAILS_REQUEST });
+  
+      const { data } = await axios.get(`/api/v2/product/${id}`);
+  
+      dispatch({
+        type: PRODUCT_DETAILS_SUCCESS,
+        payload: data.product,
+      });
+    } catch (error) {
+      dispatch({
+        type: PRODUCT_DETAILS_FAIL,
+        payload: error.response.message,
       });
     }
   };

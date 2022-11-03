@@ -14,7 +14,8 @@ const Header = () => {
       <div className="logo pxy__10">
         <Link to="/">
           <img                 
-            src={logo}
+            // src={logo}
+            src="/static/media/logo.4291d04f3cda1e1cb84b.jpg"
             alt=""
             className="logo"
             style={{

@@ -7,16 +7,16 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Router, Routes, Route } from "react-router-dom";
 
 
 ReactDOM.render(
+ 
+  <BrowserRouter>
   <Provider store={store}>
-    <Router>
       <App />
-    </Router>
-  </Provider>,
-
+  </Provider>
+</BrowserRouter>,
   document.getElementById("root")
 );
 reportWebVitals();

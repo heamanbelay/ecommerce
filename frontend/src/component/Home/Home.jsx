@@ -5,6 +5,7 @@ import bg from "../../Assets/background.jpg";
 import bg2 from "../../Assets/background2.jpg";
 import bg3 from "../../Assets/back3.jpg";
 import bg4 from "../../Assets/back4.jpg";
+// import {withRouter} from 'react-router'
 
 import ProductCard from "../Products/ProductCard";
 import  {useDispatch, useSelector} from "react-redux"
@@ -15,12 +16,14 @@ import Header from "./Header";
 //import BottomTab from "../../more/BottomTab";
 // import Loading from "../../more/Loader";
 import { ToastContainer, toast } from 'react-toastify';
+import MetaData from "../../more/MetaData";
+import Footer from "../../more/Footer";
 //import 'react-toastify/dist/ReactToastify.css';
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { products,error,loading } = useSelector(
-     (state) => state.product
+  const { product,error,loading } = useSelector(
+     (state) => state.products
   );
 
    useEffect(() => {
@@ -33,11 +36,14 @@ const Home = () => {
    
   return (
      <>
+     <MetaData title="Happy Women's Fashion"/>
+
+      <Header/>
+
      {/* {loading ? (
       <Loading />
     ) */}
-    : (
-      <>
+      
       {/* <MetaData title="Home" />  */}
         {/* Carousel */}
         <div className="banner">
@@ -46,7 +52,6 @@ const Home = () => {
                  <img src={bg2} className="bgImg"/>
                  <img src={bg3} className="bgImg"/>
                  <img src={bg4} className="bgImg"/>
-
                </Carousel>
              <div className="home__content">
                <div style={{
@@ -129,11 +134,12 @@ const Home = () => {
  
       <h2 className="homeHeading">Featured Products</h2>
        <div className="container" id="container">
-        {products && products.map((product) =>(
+        {product && product.map((product) =>(
           <ProductCard key={product._id} product={product} />
         ))} 
       </div> 
-      {/* <ToastContainer 
+      <Footer/>
+       <ToastContainer 
         position="bottom-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -143,11 +149,10 @@ const Home = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        /> */}
+        /> 
 
       </>   
-    )
-      </>   
+    
 );
 };
 
